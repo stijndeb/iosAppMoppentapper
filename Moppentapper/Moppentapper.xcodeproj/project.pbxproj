@@ -1,0 +1,464 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		69B658735C5890968BDE31B3 /* Pods_Moppentapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FAE5E8461DF0AF7791E9FE0 /* Pods_Moppentapper.framework */; };
+		70CE80A81FEFAA0400C2664F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CE80A71FEFAA0400C2664F /* AppDelegate.swift */; };
+		70CE80AA1FEFAA0400C2664F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CE80A91FEFAA0400C2664F /* LoginViewController.swift */; };
+		70CE80AD1FEFAA0400C2664F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70CE80AB1FEFAA0400C2664F /* Main.storyboard */; };
+		70CE80AF1FEFAA0400C2664F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70CE80AE1FEFAA0400C2664F /* Assets.xcassets */; };
+		70CE80B21FEFAA0400C2664F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70CE80B01FEFAA0400C2664F /* LaunchScreen.storyboard */; };
+		70CE810B1FF05C0800C2664F /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CE810A1FF05C0800C2664F /* Post.swift */; };
+		70CE810E1FF05C8300C2664F /* KituraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CE810D1FF05C8300C2664F /* KituraService.swift */; };
+		70E002DF1FF26C0D00BB2942 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E002DE1FF26C0D00BB2942 /* PostViewController.swift */; };
+		70E002E51FF297EE00BB2942 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E002E31FF297EE00BB2942 /* PostCell.swift */; };
+		70E002E61FF297EE00BB2942 /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70E002E41FF297EE00BB2942 /* PostCell.xib */; };
+		70E002E81FF2EE0C00BB2942 /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E002E71FF2EE0C00BB2942 /* PostDetailViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		131C46BABE2053C6853D7F7B /* Pods-Moppentapper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moppentapper.release.xcconfig"; path = "Pods/Target Support Files/Pods-Moppentapper/Pods-Moppentapper.release.xcconfig"; sourceTree = "<group>"; };
+		5FAE5E8461DF0AF7791E9FE0 /* Pods_Moppentapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Moppentapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		70CE80A41FEFAA0400C2664F /* Moppentapper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moppentapper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		70CE80A71FEFAA0400C2664F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		70CE80A91FEFAA0400C2664F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		70CE80AC1FEFAA0400C2664F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		70CE80AE1FEFAA0400C2664F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		70CE80B11FEFAA0400C2664F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		70CE80B31FEFAA0400C2664F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		70CE810A1FF05C0800C2664F /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		70CE810D1FF05C8300C2664F /* KituraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KituraService.swift; sourceTree = "<group>"; };
+		70E002DE1FF26C0D00BB2942 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		70E002E31FF297EE00BB2942 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		70E002E41FF297EE00BB2942 /* PostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
+		70E002E71FF2EE0C00BB2942 /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
+		8652B519D8A47EB7D67D195D /* Pods-Moppentapper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moppentapper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Moppentapper/Pods-Moppentapper.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		70CE80A11FEFAA0400C2664F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69B658735C5890968BDE31B3 /* Pods_Moppentapper.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3447F088F0EE683E61AD0744 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8652B519D8A47EB7D67D195D /* Pods-Moppentapper.debug.xcconfig */,
+				131C46BABE2053C6853D7F7B /* Pods-Moppentapper.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		70CE809B1FEFAA0400C2664F = {
+			isa = PBXGroup;
+			children = (
+				70CE80A61FEFAA0400C2664F /* Moppentapper */,
+				70CE80A51FEFAA0400C2664F /* Products */,
+				3447F088F0EE683E61AD0744 /* Pods */,
+				7BE8D5C1B91234F39FE303B2 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		70CE80A51FEFAA0400C2664F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				70CE80A41FEFAA0400C2664F /* Moppentapper.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		70CE80A61FEFAA0400C2664F /* Moppentapper */ = {
+			isa = PBXGroup;
+			children = (
+				70E002E01FF2799F00BB2942 /* Views */,
+				70E002DD1FF26ACC00BB2942 /* ViewControllers */,
+				70CE810C1FF05C6B00C2664F /* Services */,
+				70CE81091FF05BF400C2664F /* Model */,
+				70CE80A71FEFAA0400C2664F /* AppDelegate.swift */,
+				70CE80AB1FEFAA0400C2664F /* Main.storyboard */,
+				70CE80AE1FEFAA0400C2664F /* Assets.xcassets */,
+				70CE80B01FEFAA0400C2664F /* LaunchScreen.storyboard */,
+				70CE80B31FEFAA0400C2664F /* Info.plist */,
+			);
+			path = Moppentapper;
+			sourceTree = "<group>";
+		};
+		70CE81091FF05BF400C2664F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				70CE810A1FF05C0800C2664F /* Post.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		70CE810C1FF05C6B00C2664F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				70CE810D1FF05C8300C2664F /* KituraService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		70E002DD1FF26ACC00BB2942 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				70CE80A91FEFAA0400C2664F /* LoginViewController.swift */,
+				70E002DE1FF26C0D00BB2942 /* PostViewController.swift */,
+				70E002E71FF2EE0C00BB2942 /* PostDetailViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		70E002E01FF2799F00BB2942 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				70E002E31FF297EE00BB2942 /* PostCell.swift */,
+				70E002E41FF297EE00BB2942 /* PostCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7BE8D5C1B91234F39FE303B2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5FAE5E8461DF0AF7791E9FE0 /* Pods_Moppentapper.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		70CE80A31FEFAA0400C2664F /* Moppentapper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 70CE80B61FEFAA0400C2664F /* Build configuration list for PBXNativeTarget "Moppentapper" */;
+			buildPhases = (
+				0A8EDAE12174606FD916EABF /* [CP] Check Pods Manifest.lock */,
+				70CE80A01FEFAA0400C2664F /* Sources */,
+				70CE80A11FEFAA0400C2664F /* Frameworks */,
+				70CE80A21FEFAA0400C2664F /* Resources */,
+				A742B69299C3BAE9B4AB8B38 /* [CP] Embed Pods Frameworks */,
+				4CB81A9ADB3BFE7BEC732EB2 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Moppentapper;
+			productName = Moppentapper;
+			productReference = 70CE80A41FEFAA0400C2664F /* Moppentapper.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		70CE809C1FEFAA0400C2664F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "Stijn De Backer";
+				TargetAttributes = {
+					70CE80A31FEFAA0400C2664F = {
+						CreatedOnToolsVersion = 9.0.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 70CE809F1FEFAA0400C2664F /* Build configuration list for PBXProject "Moppentapper" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 70CE809B1FEFAA0400C2664F;
+			productRefGroup = 70CE80A51FEFAA0400C2664F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				70CE80A31FEFAA0400C2664F /* Moppentapper */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		70CE80A21FEFAA0400C2664F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70CE80B21FEFAA0400C2664F /* LaunchScreen.storyboard in Resources */,
+				70CE80AF1FEFAA0400C2664F /* Assets.xcassets in Resources */,
+				70CE80AD1FEFAA0400C2664F /* Main.storyboard in Resources */,
+				70E002E61FF297EE00BB2942 /* PostCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0A8EDAE12174606FD916EABF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Moppentapper-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4CB81A9ADB3BFE7BEC732EB2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Moppentapper/Pods-Moppentapper-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A742B69299C3BAE9B4AB8B38 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Moppentapper/Pods-Moppentapper-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/KituraKit/KituraKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KituraKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Moppentapper/Pods-Moppentapper-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		70CE80A01FEFAA0400C2664F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70CE810B1FF05C0800C2664F /* Post.swift in Sources */,
+				70E002E81FF2EE0C00BB2942 /* PostDetailViewController.swift in Sources */,
+				70CE80AA1FEFAA0400C2664F /* LoginViewController.swift in Sources */,
+				70CE80A81FEFAA0400C2664F /* AppDelegate.swift in Sources */,
+				70CE810E1FF05C8300C2664F /* KituraService.swift in Sources */,
+				70E002DF1FF26C0D00BB2942 /* PostViewController.swift in Sources */,
+				70E002E51FF297EE00BB2942 /* PostCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		70CE80AB1FEFAA0400C2664F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				70CE80AC1FEFAA0400C2664F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		70CE80B01FEFAA0400C2664F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				70CE80B11FEFAA0400C2664F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		70CE80B41FEFAA0400C2664F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		70CE80B51FEFAA0400C2664F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		70CE80B71FEFAA0400C2664F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8652B519D8A47EB7D67D195D /* Pods-Moppentapper.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Moppentapper/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Stijn.Moppentapper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		70CE80B81FEFAA0400C2664F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 131C46BABE2053C6853D7F7B /* Pods-Moppentapper.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Moppentapper/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Stijn.Moppentapper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		70CE809F1FEFAA0400C2664F /* Build configuration list for PBXProject "Moppentapper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				70CE80B41FEFAA0400C2664F /* Debug */,
+				70CE80B51FEFAA0400C2664F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		70CE80B61FEFAA0400C2664F /* Build configuration list for PBXNativeTarget "Moppentapper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				70CE80B71FEFAA0400C2664F /* Debug */,
+				70CE80B81FEFAA0400C2664F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 70CE809C1FEFAA0400C2664F /* Project object */;
+}

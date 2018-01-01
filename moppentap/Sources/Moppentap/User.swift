@@ -21,15 +21,26 @@ extension User{
     convenience init?(from bson: Document){
         print("user")
         print(bson)
-        guard let name = String(bson["name"]),
+        var name = "N.A."
+        var password = "N.A."
+        guard
             let email = String(bson["email"]),
-            let username = String(bson["username"]),
-            let password = String(bson["password"])
+            let username = String(bson["username"])
+            //let password = String(bson["password"])
         else{
-            print("fuck")
             return nil
         }
-        self.init(name: name, email: email, username: username, password: password)
+        if bson["name"] == nil {
+            name = "N.A."
+        }else{ name = String(describing: bson["name"])}
+        
+        if bson["password"] == nil {
+            password = "N.A."
+        }else{ name = String(describing: bson["password"])}
+        
+        
+        
+        self.init(name:name, email: email, username: username, password: password)
     }
     func toBSON() -> Document{
         return[

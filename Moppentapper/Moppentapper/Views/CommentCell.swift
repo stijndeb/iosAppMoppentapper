@@ -1,20 +1,24 @@
+//
+//  CommentCell.swift
+//  Moppentapper
+//
+//  Created by Stijn De Backer on 01/01/2018.
+//  Copyright © 2018 Stijn De Backer. All rights reserved.
+//
 
 import UIKit
 
-class PostCell: UICollectionViewCell {
+class CommentCell: UICollectionViewCell {
 
-    @IBOutlet weak var widthConstraint: NSLayoutConstraint!
     @IBOutlet weak var inhoudLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
-    @IBOutlet weak var inhoudHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var widthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var inhoudheightconstraint: NSLayoutConstraint!
     
     
     override func awakeFromNib() {
-        
         super.awakeFromNib()
         // Initialization code
-        
         self.contentView.translatesAutoresizingMaskIntoConstraints = false
         let screenWidth = UIScreen.main.bounds.size.width
         widthConstraint.constant = screenWidth - (2 * 8)
@@ -22,11 +26,10 @@ class PostCell: UICollectionViewCell {
         
     }
     
-    var post: Post! {
+    var comment: Comment! {
         didSet {
-            titleLabel.text = post.title
-            inhoudLabel.text = post.inhoud
-            usernameLabel.text = "~ \(post.auteur.username) score: \(post.score())/10 (\(post.beoordeling.count) stemmen)"
+            usernameLabel.text = comment.auteur.username
+            inhoudLabel.text = comment.inhoud
             prepareView()
         }
     }
@@ -35,18 +38,16 @@ class PostCell: UICollectionViewCell {
         layer.cornerRadius = 8
         layer.borderWidth = 1
         
-        
-        
         let size = CGSize(width: widthConstraint.constant, height: 1000)
         
         //let attributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 15)]
         //let attributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 15)]
         let attributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 15)]
         
-        let estimatedFrame = NSString(string: post.inhoud).boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
+        let estimatedFrame = NSString(string: comment.inhoud).boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
         //let test = NSString(string: post.inhoud).boundingRect(with: <#T##CGSize#>, options: <#T##NSStringDrawingOptions#>, attributes: <#T##[NSAttributedStringKey : Any]?#>, context: <#T##NSStringDrawingContext?#>)
         
-        inhoudHeightConstraint.constant = estimatedFrame.height + 75
+        inhoudheightconstraint.constant = estimatedFrame.height + 75
         
         
         

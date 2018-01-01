@@ -14,7 +14,6 @@ class PostViewController: UIViewController, UICollectionViewDataSource, UICollec
         KituraService.shared.getPosts {
             if let posts = $0 {
                 self.posts = posts
-                print(posts)
                 self.collectionView.reloadData()
             }
         }
@@ -29,10 +28,8 @@ class PostViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-        print("oh")
         switch segue.identifier {
         case "showPost"?:
-            print("niet")
             let postDetailViewController = segue.destination as! PostDetailViewController
             let selection = collectionView.indexPathsForSelectedItems!.first!
             postDetailViewController.post = posts[selection.item]

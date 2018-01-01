@@ -19,6 +19,18 @@ class KituraService {
         }
     }
     
+    func getDetailPost(withId id: String, respondWith: @escaping (Post?) -> Void){
+        client.get("posts", identifier: id) {
+            (post: Post?, error: RequestError?) in
+            if let error = error {
+                print("err while loading post: \(error.localizedDescription)")
+            }
+            DispatchQueue.main.async {
+                respondWith(post)
+            }
+        }
+    }
+    
     
 }
 

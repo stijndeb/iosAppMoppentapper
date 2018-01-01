@@ -12,14 +12,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="PostCell" customModule="Moppentapper" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="400" height="128"/>
+            <rect key="frame" x="0.0" y="0.0" width="400" height="157"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="400" height="128"/>
+                <rect key="frame" x="0.0" y="0.0" width="400" height="157"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4co-1C-uhq">
-                        <rect key="frame" x="0.0" y="0.0" width="400" height="128"/>
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="157"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wjG-a5-LGL">
                                 <rect key="frame" x="8" y="8" width="384" height="21"/>
@@ -36,14 +36,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cK6-Ho-LWQ">
+                                <rect key="frame" x="8" y="128" width="384" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <constraints>
                             <constraint firstItem="wjG-a5-LGL" firstAttribute="leading" secondItem="4co-1C-uhq" secondAttribute="leading" constant="8" id="4JU-U9-1CI"/>
-                            <constraint firstAttribute="bottom" secondItem="8I4-ya-Wn8" secondAttribute="bottom" constant="8" id="8Vu-uK-bYG"/>
+                            <constraint firstAttribute="trailing" secondItem="cK6-Ho-LWQ" secondAttribute="trailing" constant="8" id="9fE-7o-L6L"/>
                             <constraint firstItem="8I4-ya-Wn8" firstAttribute="top" secondItem="wjG-a5-LGL" secondAttribute="bottom" constant="8" id="9rb-db-ZIC"/>
                             <constraint firstAttribute="trailing" secondItem="8I4-ya-Wn8" secondAttribute="trailing" constant="8" id="F8i-oP-rvP"/>
                             <constraint firstItem="wjG-a5-LGL" firstAttribute="top" secondItem="4co-1C-uhq" secondAttribute="top" constant="8" id="U3L-UO-zM0"/>
                             <constraint firstItem="8I4-ya-Wn8" firstAttribute="leading" secondItem="4co-1C-uhq" secondAttribute="leading" constant="8" id="WDr-L6-lNE"/>
+                            <constraint firstAttribute="bottom" secondItem="cK6-Ho-LWQ" secondAttribute="bottom" constant="8" id="Wfr-8B-JaU"/>
+                            <constraint firstItem="cK6-Ho-LWQ" firstAttribute="top" secondItem="8I4-ya-Wn8" secondAttribute="bottom" constant="8" id="a2L-hF-E1N"/>
+                            <constraint firstItem="cK6-Ho-LWQ" firstAttribute="leading" secondItem="4co-1C-uhq" secondAttribute="leading" constant="8" id="ekQ-0h-rLy"/>
                             <constraint firstAttribute="trailing" secondItem="wjG-a5-LGL" secondAttribute="trailing" constant="8" id="lin-fX-JGJ"/>
                             <constraint firstAttribute="width" constant="400" id="llD-83-Peg"/>
                         </constraints>
@@ -61,6 +70,7 @@
                 <outlet property="inhoudHeightConstraint" destination="fWV-lz-zgm" id="QE4-HF-RV3"/>
                 <outlet property="inhoudLabel" destination="8I4-ya-Wn8" id="WWx-0o-ZWr"/>
                 <outlet property="titleLabel" destination="wjG-a5-LGL" id="doD-Kb-wNf"/>
+                <outlet property="usernameLabel" destination="cK6-Ho-LWQ" id="QIq-m6-es6"/>
                 <outlet property="widthConstraint" destination="llD-83-Peg" id="9i4-4L-Mg9"/>
             </connections>
             <point key="canvasLocation" x="26" y="52"/>

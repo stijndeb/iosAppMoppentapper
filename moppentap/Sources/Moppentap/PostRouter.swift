@@ -17,8 +17,8 @@ private let users = database["users"]
 
 func configurePostRouter(on router: Router){
     router.get("/", handler: getAllPosts)
-    router.post("/", handler: addPost)
-    //router.get("/", handler: getProject)
+    //router.post("/", handler: addPost)
+    router.get("/", handler: getDetailPost)
     //router.put("/", handler: updateProject)
     //router.delete("/", handler: deleteProject)
     
@@ -30,33 +30,33 @@ func configurePostRouter(on router: Router){
 private func getAllPosts(completion: ([Post]?, RequestError?)  -> Void) {
     do {
         
+        let auteurproject: Projection = ["auteur.name": .excluded,"auteur.password": .excluded]
+        let auteurstage = AggregationPipeline.Stage.project(auteurproject)
+        
         let auteurlookup = AggregationPipeline.Stage.lookup(from: "users", localField: "auteur",foreignField: "_id",as: "auteur")
         let ratinglookup = AggregationPipeline.Stage.lookup(from: "ratings", localField: "beoordeling",foreignField: "_id",as: "beoordeling")
         let categorylookup = AggregationPipeline.Stage.lookup(from: "categories", localField: "category",foreignField: "_id",as: "category")
         let commentlookup = AggregationPipeline.Stage.lookup(from: "comments", localField: "comments",foreignField: "_id",as: "comments")
 
-        let profileProjection: Projection = ["_id", "datum", "auteur", "title", "category", "inhoud", "beoordeling", "comments"]
-        
+        let profileProjection: Projection = [
+            "_id": .included,
+            "datum": .included,
+            "auteur": .included,
+            "title": .included,
+            "category": .included,
+            "inhoud": .included,
+            "beoordeling": .included,
+            "comments": "[]"]
+ 
         let projectstage = AggregationPipeline.Stage.project(profileProjection)
-        
         let pipeline: AggregationPipeline = [
         projectstage,
-            auteurlookup, ratinglookup, categorylookup, commentlookup
+            auteurlookup, ratinglookup, categorylookup, commentlookup, auteurstage
         ]
         
-        let iets = try posts.aggregate(pipeline).flatMap(Post.init)
-        
-        /*let results = try posts.find().flatMap(Post.init)
-        let test = try posts.aggregate([
-            .lookup{
-                from: "items",
-                localField: "item",    // field in the orders collection
-                foreignField: "item",  // field in the items collection
-                as: "fromItems"
-            }
-         
-            ])*/
-        completion(iets, nil)
+        let result = try posts.aggregate(pipeline).flatMap(Post.init)
+  
+        completion(result, nil)
     } catch {
         Log.error(error.localizedDescription)
         completion(nil, .internalServerError)
@@ -64,7 +64,58 @@ private func getAllPosts(completion: ([Post]?, RequestError?)  -> Void) {
 }
 
 
-
+private func getDetailPost(id: String, completion: (Post?, RequestError?) -> Void){
+    do {
+        let match = try AggregationPipeline.Stage.match("_id" == ObjectId(id))
+        
+        let auteurproject: Projection = ["auteur.name": .excluded,"auteur.password": .excluded]
+        let auteurstage = AggregationPipeline.Stage.project(auteurproject)
+        
+        let doc: Document = ["_id": "$_id",
+                             "datum": ["$first": "$datum"],
+                             "auteur": ["$first": "$auteur"],
+                             "title": ["$first": "$title"],
+                             "category": ["$first": "$category"],
+                             "inhoud": ["$first": "$inhoud"],
+                             "beoordeling": ["$first": "$beoordeling"],
+                             "comments": ["$push": "$comments"]]
+        let auteurlookup = AggregationPipeline.Stage.lookup(from: "users", localField: "auteur",foreignField: "_id",as: "auteur")
+        let ratinglookup = AggregationPipeline.Stage.lookup(from: "ratings", localField: "beoordeling",foreignField: "_id",as: "beoordeling")
+        let categorylookup = AggregationPipeline.Stage.lookup(from: "categories", localField: "category",foreignField: "_id",as: "category")
+        let commentlookup = AggregationPipeline.Stage.lookup(from: "comments", localField: "comments",foreignField: "_id",as: "comments")
+        
+        let commentauteurlookup = AggregationPipeline.Stage.lookup(from: "users", localField: "comments.auteur", foreignField: "_id", as: "comments.auteur")
+        
+        let comauteurproject: Projection = ["comments.auteur.name": .excluded,"comments.auteur.password": .excluded]
+        let comauteurstage = AggregationPipeline.Stage.project(comauteurproject)
+        
+        let detailProjection: Projection = [
+            "_id": .included,
+            "datum": .included,
+            "auteur": .included,
+            "title": .included,
+            "category": .included,
+            "inhoud": .included,
+            "beoordeling": .included,
+            "comments": .included]
+        
+        let detailprojectstage = AggregationPipeline.Stage.project(detailProjection)
+        let pipeline: AggregationPipeline = [
+            detailprojectstage, match,
+            auteurlookup, ratinglookup, categorylookup, commentlookup, .unwind("$comments"), auteurstage, commentauteurlookup, comauteurstage, .group(groupDocument: doc)
+        ]
+        
+        guard let result = try posts.aggregate(pipeline).flatMap(Post.init).first else{
+            return completion(nil, .notFound)
+        }
+        
+        completion(result,nil)
+        
+    } catch {
+        Log.error(error.localizedDescription)
+        completion(nil, .internalServerError)
+    }
+}
 
 // POST /projects
 private func addPost(post: Post, completion: (Post?, RequestError?) -> Void) {

@@ -11,6 +11,7 @@ import MongoKitten
 extension Category{
     convenience init?(from bson: Document){
         print("cat")
+        print(bson)
         guard let name = String(bson["name"]) else{
             return nil
         }

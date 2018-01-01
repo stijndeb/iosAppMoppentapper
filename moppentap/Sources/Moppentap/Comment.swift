@@ -5,10 +5,10 @@ class Comment: Codable {
     var inhoud: String
     var auteur: User
     var beoordeling: Int
-    var post: Post
+    var post: ObjectId
     var datum: Date
     
-    init(inhoud: String, auteur: User, post: Post, beoordeling: Int, datum: Date){
+    init(inhoud: String, auteur: User, post: ObjectId, beoordeling: Int, datum: Date){
         self.inhoud = inhoud
         self.auteur = auteur
         self.post = post
@@ -20,16 +20,16 @@ class Comment: Codable {
 
 extension Comment{
     convenience init?(from bson: Document){
-        print("com")
+        print("comm")
+        print(bson)
         guard let inhoud = String(bson["inhoud"]),
-            let auteurBSON = Document(bson["auteur"]),
-            let auteur = User(from: auteurBSON),
+            let auteurBSON = Array(bson["auteur"]),
             let beoordeling = Int(bson["beoordeling"]),
-            let postBSON = Document(bson["post"]),
-            let post = Post(from: postBSON),
+            let post = ObjectId(bson["post"]),
             let datum = Date(bson["datum"]) else{
                 return nil
             }
+        let auteur = auteurBSON.flatMap{ Document($0)}.flatMap { User(from: $0)}.first!
         self.init(inhoud: inhoud, auteur: auteur, post: post, beoordeling: beoordeling, datum: datum)
     }
     func toBSON() -> Document{
@@ -37,7 +37,7 @@ extension Comment{
             "inhoud": inhoud,
             "auteur": auteur.toBSON(),
             "beoordeling": beoordeling,
-            "post": post.toBSON(),
+            "post": post,
             "datum": datum
         ]
     }

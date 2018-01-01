@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		69B658735C5890968BDE31B3 /* Pods_Moppentapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FAE5E8461DF0AF7791E9FE0 /* Pods_Moppentapper.framework */; };
+		706301E51FFAB8B200BD8ED1 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706301E41FFAB8B200BD8ED1 /* Category.swift */; };
+		706301E71FFAB8C900BD8ED1 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706301E61FFAB8C900BD8ED1 /* Comment.swift */; };
+		706301E91FFAB8EF00BD8ED1 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706301E81FFAB8EF00BD8ED1 /* Rating.swift */; };
+		706301EB1FFAB91700BD8ED1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706301EA1FFAB91700BD8ED1 /* User.swift */; };
+		706301F21FFAC4D500BD8ED1 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706301F01FFAC4D500BD8ED1 /* CommentCell.swift */; };
+		706301F31FFAC4D500BD8ED1 /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 706301F11FFAC4D500BD8ED1 /* CommentCell.xib */; };
 		70CE80A81FEFAA0400C2664F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CE80A71FEFAA0400C2664F /* AppDelegate.swift */; };
 		70CE80AA1FEFAA0400C2664F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CE80A91FEFAA0400C2664F /* LoginViewController.swift */; };
 		70CE80AD1FEFAA0400C2664F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70CE80AB1FEFAA0400C2664F /* Main.storyboard */; };
@@ -24,6 +30,12 @@
 /* Begin PBXFileReference section */
 		131C46BABE2053C6853D7F7B /* Pods-Moppentapper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moppentapper.release.xcconfig"; path = "Pods/Target Support Files/Pods-Moppentapper/Pods-Moppentapper.release.xcconfig"; sourceTree = "<group>"; };
 		5FAE5E8461DF0AF7791E9FE0 /* Pods_Moppentapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Moppentapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		706301E41FFAB8B200BD8ED1 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		706301E61FFAB8C900BD8ED1 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		706301E81FFAB8EF00BD8ED1 /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
+		706301EA1FFAB91700BD8ED1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		706301F01FFAC4D500BD8ED1 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
+		706301F11FFAC4D500BD8ED1 /* CommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
 		70CE80A41FEFAA0400C2664F /* Moppentapper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moppentapper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70CE80A71FEFAA0400C2664F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70CE80A91FEFAA0400C2664F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +111,10 @@
 			isa = PBXGroup;
 			children = (
 				70CE810A1FF05C0800C2664F /* Post.swift */,
+				706301E41FFAB8B200BD8ED1 /* Category.swift */,
+				706301E61FFAB8C900BD8ED1 /* Comment.swift */,
+				706301E81FFAB8EF00BD8ED1 /* Rating.swift */,
+				706301EA1FFAB91700BD8ED1 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -126,6 +142,8 @@
 			children = (
 				70E002E31FF297EE00BB2942 /* PostCell.swift */,
 				70E002E41FF297EE00BB2942 /* PostCell.xib */,
+				706301F01FFAC4D500BD8ED1 /* CommentCell.swift */,
+				706301F11FFAC4D500BD8ED1 /* CommentCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -200,6 +218,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				706301F31FFAC4D500BD8ED1 /* CommentCell.xib in Resources */,
 				70CE80B21FEFAA0400C2664F /* LaunchScreen.storyboard in Resources */,
 				70CE80AF1FEFAA0400C2664F /* Assets.xcassets in Resources */,
 				70CE80AD1FEFAA0400C2664F /* Main.storyboard in Resources */,
@@ -270,11 +289,16 @@
 			files = (
 				70CE810B1FF05C0800C2664F /* Post.swift in Sources */,
 				70E002E81FF2EE0C00BB2942 /* PostDetailViewController.swift in Sources */,
+				706301E91FFAB8EF00BD8ED1 /* Rating.swift in Sources */,
 				70CE80AA1FEFAA0400C2664F /* LoginViewController.swift in Sources */,
 				70CE80A81FEFAA0400C2664F /* AppDelegate.swift in Sources */,
 				70CE810E1FF05C8300C2664F /* KituraService.swift in Sources */,
 				70E002DF1FF26C0D00BB2942 /* PostViewController.swift in Sources */,
 				70E002E51FF297EE00BB2942 /* PostCell.swift in Sources */,
+				706301E71FFAB8C900BD8ED1 /* Comment.swift in Sources */,
+				706301E51FFAB8B200BD8ED1 /* Category.swift in Sources */,
+				706301EB1FFAB91700BD8ED1 /* User.swift in Sources */,
+				706301F21FFAC4D500BD8ED1 /* CommentCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,7 +437,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SYYCA962N2;
 				INFOPLIST_FILE = Moppentapper/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Stijn.Moppentapper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -428,7 +454,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SYYCA962N2;
 				INFOPLIST_FILE = Moppentapper/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Stijn.Moppentapper;
 				PRODUCT_NAME = "$(TARGET_NAME)";

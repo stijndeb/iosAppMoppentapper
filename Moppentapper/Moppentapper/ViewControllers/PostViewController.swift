@@ -4,8 +4,10 @@ class PostViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-
+    @IBOutlet weak var rightButton: UIButton!
+    
     var posts: [Post] = []
+    @IBOutlet weak var LogIn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,10 +35,59 @@ class PostViewController: UIViewController, UICollectionViewDataSource, UICollec
             let postDetailViewController = segue.destination as! PostDetailViewController
             let selection = collectionView.indexPathsForSelectedItems!.first!
             postDetailViewController.post = posts[selection.item]
+        case "Login"?:
+            _ = segue.destination as! LoginViewController
+            
+        case "profile"?:
+            _ = segue.destination as! ProfileViewController
+            
         default:
             fatalError("Unknown segue")
         }
     }
+    
+
+    
+    @IBAction func checkButton(_ sender: Any) {
+        
+        if(rightButton.currentTitle == "Log in"){
+            self.performSegue(withIdentifier: "Login", sender: self)
+        }else if(rightButton.currentTitle == UserDefaults.standard.string(forKey: "username")){
+            self.performSegue(withIdentifier: "profile", sender: self)
+        }else {
+            self.performSegue(withIdentifier: "Login", sender: self)
+        }
+        
+    }
+    
+    
+    @IBAction func unwindFromLogin(_ segue: UIStoryboardSegue) {
+        print("huh")
+        switch segue.identifier {
+        case "loginSucces"?:
+            print("hier")
+            let defaults = UserDefaults.standard
+            if(defaults.string(forKey: "username")! != "N.A."){
+                rightButton.setTitle(defaults.string(forKey: "username"), for: .normal)
+                
+            }
+        case "logOut"?:
+            rightButton.setTitle("Log in", for: .normal)
+            let defaults = UserDefaults.standard
+            defaults.removeObject(forKey: "username")
+            defaults.removeObject(forKey: "email")
+            defaults.removeObject(forKey: "name")
+            defaults.removeObject(forKey: "password")
+            
+            
+        default:
+            fatalError("Unknown segue")
+        }
+        
+    }
+    
+    
+    
     
     
     override func didReceiveMemoryWarning(){
@@ -69,6 +120,12 @@ class PostViewController: UIViewController, UICollectionViewDataSource, UICollec
         self.navigationController?.pushViewController(postDetailViewController, animated: true)
         
     }
+    
+    
+    
+    
+    
+    
     
     /*func collectionView(_ collectionViw: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath)

@@ -35,10 +35,6 @@ class PostDetailViewController: UIViewController, UICollectionViewDataSource, UI
         commnets.dataSource = self
         
         
-        
-        
-        
-        
         let size = CGSize(width: 400, height: 1000)
         
         //let attributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 15)]

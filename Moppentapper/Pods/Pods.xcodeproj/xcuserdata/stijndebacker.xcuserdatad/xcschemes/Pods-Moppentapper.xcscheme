@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "37ED18B3BD362CD3931B44A214C85E57"
+               BlueprintIdentifier = "81AF22DF59776DC67728E8FA4547970C"
                BuildableName = "Pods_Moppentapper.framework"
                BlueprintName = "Pods-Moppentapper"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -47,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "37ED18B3BD362CD3931B44A214C85E57"
+            BlueprintIdentifier = "81AF22DF59776DC67728E8FA4547970C"
             BuildableName = "Pods_Moppentapper.framework"
             BlueprintName = "Pods-Moppentapper"
             ReferencedContainer = "container:Pods.xcodeproj">

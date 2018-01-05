@@ -29,6 +29,15 @@
         }
       },
       {
+        "package": "CryptoEssentials",
+        "repositoryURL": "https://github.com/CryptoKitten/CryptoEssentials.git",
+        "state": {
+          "branch": null,
+          "revision": "83c731571354eff15f0645d1ed7d42ec8b54d274",
+          "version": "0.13.0"
+        }
+      },
+      {
         "package": "CryptoKitten",
         "repositoryURL": "https://github.com/OpenKitten/CryptoKitten.git",
         "state": {

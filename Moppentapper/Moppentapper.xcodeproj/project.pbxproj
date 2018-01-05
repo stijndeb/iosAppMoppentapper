@@ -25,6 +25,7 @@
 		70E002E51FF297EE00BB2942 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E002E31FF297EE00BB2942 /* PostCell.swift */; };
 		70E002E61FF297EE00BB2942 /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70E002E41FF297EE00BB2942 /* PostCell.xib */; };
 		70E002E81FF2EE0C00BB2942 /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E002E71FF2EE0C00BB2942 /* PostDetailViewController.swift */; };
+		70E98B131FFEE4DB0047CB66 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E98B121FFEE4DB0047CB66 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		70E002E31FF297EE00BB2942 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		70E002E41FF297EE00BB2942 /* PostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
 		70E002E71FF2EE0C00BB2942 /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
+		70E98B121FFEE4DB0047CB66 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		8652B519D8A47EB7D67D195D /* Pods-Moppentapper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moppentapper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Moppentapper/Pods-Moppentapper.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,6 +135,7 @@
 				70CE80A91FEFAA0400C2664F /* LoginViewController.swift */,
 				70E002DE1FF26C0D00BB2942 /* PostViewController.swift */,
 				70E002E71FF2EE0C00BB2942 /* PostDetailViewController.swift */,
+				70E98B121FFEE4DB0047CB66 /* ProfileViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -269,10 +272,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Moppentapper/Pods-Moppentapper-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BCryptSwift/BCryptSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework",
 				"${BUILT_PRODUCTS_DIR}/KituraKit/KituraKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BCryptSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cosmos.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KituraKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,6 +304,7 @@
 				70E002E51FF297EE00BB2942 /* PostCell.swift in Sources */,
 				706301E71FFAB8C900BD8ED1 /* Comment.swift in Sources */,
 				706301E51FFAB8B200BD8ED1 /* Category.swift in Sources */,
+				70E98B131FFEE4DB0047CB66 /* ProfileViewController.swift in Sources */,
 				706301EB1FFAB91700BD8ED1 /* User.swift in Sources */,
 				706301F21FFAC4D500BD8ED1 /* CommentCell.swift in Sources */,
 			);

@@ -7,5 +7,6 @@ target 'Moppentapper' do
 
   # Pods for Moppentapper
 pod 'KituraKit', :git => 'https://github.com/IBM-Swift/KituraKit.git', :branch => 'pod'
-
+pod "BCryptSwift"
+pod "Cosmos"
 end

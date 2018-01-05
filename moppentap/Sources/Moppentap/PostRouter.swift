@@ -19,6 +19,7 @@ func configurePostRouter(on router: Router){
     router.get("/", handler: getAllPosts)
     //router.post("/", handler: addPost)
     router.get("/", handler: getDetailPost)
+    router.get("/myPosts", handler: getMyPosts)
     //router.put("/", handler: updateProject)
     //router.delete("/", handler: deleteProject)
     
@@ -126,6 +127,50 @@ private func addPost(post: Post, completion: (Post?, RequestError?) -> Void) {
         }
         try posts.insert(post.toBSON())
         completion(post, nil)
+    } catch {
+        Log.error(error.localizedDescription)
+        completion(nil, .internalServerError)
+    }
+}
+
+
+private func getMyPosts(name: String, completion: ([Post]?, RequestError?)  -> Void) {
+    do {
+        
+        guard try users.count(["username" : name]) == 1 else {
+            completion(nil, .notFound)
+            return
+        }
+        
+        let match = try AggregationPipeline.Stage.match("auteur.username" == name)
+        
+        let auteurproject: Projection = ["auteur.name": .excluded,"auteur.password": .excluded]
+        let auteurstage = AggregationPipeline.Stage.project(auteurproject)
+        
+        let auteurlookup = AggregationPipeline.Stage.lookup(from: "users", localField: "auteur",foreignField: "_id",as: "auteur")
+        let ratinglookup = AggregationPipeline.Stage.lookup(from: "ratings", localField: "beoordeling",foreignField: "_id",as: "beoordeling")
+        let categorylookup = AggregationPipeline.Stage.lookup(from: "categories", localField: "category",foreignField: "_id",as: "category")
+        let commentlookup = AggregationPipeline.Stage.lookup(from: "comments", localField: "comments",foreignField: "_id",as: "comments")
+        
+        let profileProjection: Projection = [
+            "_id": .included,
+            "datum": .included,
+            "auteur": .included,
+            "title": .included,
+            "category": .included,
+            "inhoud": .included,
+            "beoordeling": .included,
+            "comments": "[]"]
+        
+        let projectstage = AggregationPipeline.Stage.project(profileProjection)
+        let pipeline: AggregationPipeline = [
+            projectstage,
+            auteurlookup, ratinglookup, categorylookup, commentlookup, auteurstage, match
+        ]
+        
+        let result = try posts.aggregate(pipeline).flatMap(Post.init)
+        
+        completion(result, nil)
     } catch {
         Log.error(error.localizedDescription)
         completion(nil, .internalServerError)

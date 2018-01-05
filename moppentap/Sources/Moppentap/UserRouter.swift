@@ -12,7 +12,7 @@ private let users = database["users"]
 
 
 func configureUserRouter(on router: Router){
-    //router.get("/", handler: getAllPosts)
+    router.post("/login", handler: login)
     router.post("/register", handler: register)
     //router.get("/", handler: getProject)
     //router.put("/", handler: updateProject)
@@ -32,6 +32,23 @@ func configureUserRouter(on router: Router){
         completion(nil, .internalServerError)
     }
 }*/
+
+//POST /login
+private func login(data: User, completion: (User?, RequestError?) -> Void) {
+    do {
+        guard try users.count(["username": data.username]) == 1 else{
+            completion(nil, .notFound)
+            return
+        }
+        let result = try users.findOne(["username": data.username]).flatMap(User.init)
+        completion(result!, nil)
+        
+            
+    }catch {
+        Log.error(error.localizedDescription)
+        completion(nil, .internalServerError)
+    }
+}
 
 // POST /projects
 private func register(user: User, completion: (User?, RequestError?) -> Void) {

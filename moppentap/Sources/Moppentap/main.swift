@@ -6,6 +6,9 @@ import MongoKitten
 
 HeliumLogger.use()
 
+//de databank op mLab die ik ook gebruik voor mijn webapps site
+//https://radiant-gorge-18613.herokuapp.com
+
 let database = try! Database("mongodb://Stijn:Stijn@ds129156.mlab.com:29156/moppentapper")
 //let database = try MongoKitten.Database("mongodb://127.0.0.1:27017/mopjes")
 

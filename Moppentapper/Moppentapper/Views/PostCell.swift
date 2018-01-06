@@ -13,7 +13,6 @@ class PostCell: UICollectionViewCell {
     override func awakeFromNib() {
         
         super.awakeFromNib()
-        // Initialization code
         
         self.contentView.translatesAutoresizingMaskIntoConstraints = false
         let screenWidth = UIScreen.main.bounds.size.width
@@ -26,7 +25,7 @@ class PostCell: UICollectionViewCell {
         didSet {
             titleLabel.text = post.title
             inhoudLabel.text = post.inhoud
-            usernameLabel.text = "~ \(post.auteur.username) score: \(post.score())/10 (\(post.beoordeling.count) stemmen)"
+            usernameLabel.text = "~\(post.auteur.username)     Score: \(post.score())/10 (\(post.beoordeling.count) stemmen)"
             prepareView()
         }
     }

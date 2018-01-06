@@ -34,12 +34,12 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
         collectionView.dataSource = self
         
         
+        
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
-        case "poep"?:
-            print("poep")
         case "showPost"?:
             let postDetailViewController = segue.destination as! PostDetailViewController
             let selection = collectionView.indexPathsForSelectedItems!.first!
@@ -48,11 +48,6 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
             break
         }
     }
-    
-    
-    
-    
-    
     override func didReceiveMemoryWarning(){
         super.didReceiveMemoryWarning()
     }
@@ -61,27 +56,16 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
         return posts.count
     }
     
-    
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostCell", for: indexPath) as! PostCell
-        
-        
-        
         cell.post = posts[indexPath.item]
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
-        //let postDetailViewController = segue.destination as! PostDetailViewController
-        //let selection = collectionView.indexPathsForSelectedItems!.first!
-        //postDetailViewController.post = posts[selection.item]
         let postDetailViewController = self.storyboard?.instantiateViewController(withIdentifier: "PostDetailViewController") as! PostDetailViewController
-        
         postDetailViewController.post = posts[indexPath.item]
-        
         self.navigationController?.pushViewController(postDetailViewController, animated: true)
-        
     }
     
     

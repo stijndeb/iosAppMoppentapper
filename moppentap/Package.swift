@@ -16,8 +16,7 @@ let package = Package(
                 "HeliumLogger",
                 "Kitura",
                 "KituraStencil",
-                "MongoKitten",
-                "kitura-CredentialsHTTP"
+                "MongoKitten"
             ]
         ),
         ]

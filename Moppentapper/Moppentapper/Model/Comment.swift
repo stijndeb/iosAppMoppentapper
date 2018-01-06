@@ -6,6 +6,7 @@ class Comment: Codable {
     var beoordeling: Int
     var post: String
     var datum: Date
+    var user: String
     
     init(inhoud: String, auteur: User, post: String, beoordeling: Int, datum: Date){
         self.inhoud = inhoud
@@ -13,7 +14,19 @@ class Comment: Codable {
         self.post = post
         self.beoordeling = beoordeling
         self.datum = datum
+        self.user = ""
     }
+    
+    init(inhoud: String, user: String, post: String, beoordeling: Int, datum: Date){
+        self.inhoud = inhoud
+        self.auteur = User(name: "", email: "", username: user, password: "")
+        self.post = post
+        self.beoordeling = beoordeling
+        self.datum = datum
+        self.user = user
+    }
+    
+    
     
     private enum CodingKeys: CodingKey {
         case inhoud
@@ -21,6 +34,15 @@ class Comment: Codable {
         case beoordeling
         case post
         case datum
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(inhoud, forKey: .inhoud)
+        try container.encode(user, forKey: .auteur)
+        try container.encode(datum, forKey: .datum)
+        try container.encode(beoordeling, forKey: .beoordeling)
+        try container.encode(post, forKey: .post)
     }
     
     
@@ -37,6 +59,6 @@ class Comment: Codable {
         self.beoordeling = beoordeling
         self.post = post
         self.datum = datum
-        
+        self.user = ""
     }
 }

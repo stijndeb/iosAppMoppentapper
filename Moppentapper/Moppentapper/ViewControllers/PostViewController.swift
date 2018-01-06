@@ -26,8 +26,20 @@ class PostViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
         collectionView.dataSource = self
         
-        
+        if(isKeyPresentInUserDefaults(key: "username")){
+            rightButton.setTitle(UserDefaults.standard.string(forKey: "username"), for: .normal)
+        }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        viewDidLoad()
+    }
+    
+    
+    func isKeyPresentInUserDefaults(key: String) -> Bool {
+        return UserDefaults.standard.object(forKey: key) != nil
+    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         switch segue.identifier {
@@ -52,8 +64,10 @@ class PostViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         if(rightButton.currentTitle == "Log in"){
             self.performSegue(withIdentifier: "Login", sender: self)
-        }else if(rightButton.currentTitle == UserDefaults.standard.string(forKey: "username")){
-            self.performSegue(withIdentifier: "profile", sender: self)
+        }else if(isKeyPresentInUserDefaults(key: "username")){
+            if(rightButton.currentTitle == UserDefaults.standard.string(forKey: "username")){
+                self.performSegue(withIdentifier: "profile", sender: self)
+            }
         }else {
             self.performSegue(withIdentifier: "Login", sender: self)
         }
@@ -62,14 +76,11 @@ class PostViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     
     @IBAction func unwindFromLogin(_ segue: UIStoryboardSegue) {
-        print("huh")
         switch segue.identifier {
         case "loginSucces"?:
             print("hier")
-            let defaults = UserDefaults.standard
-            if(defaults.string(forKey: "username")! != "N.A."){
-                rightButton.setTitle(defaults.string(forKey: "username"), for: .normal)
-                
+            if(isKeyPresentInUserDefaults(key: "username")){
+                rightButton.setTitle(UserDefaults.standard.string(forKey: "username"), for: .normal)
             }
         case "logOut"?:
             rightButton.setTitle("Log in", for: .normal)
@@ -87,9 +98,6 @@ class PostViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     
-    
-    
-    
     override func didReceiveMemoryWarning(){
         super.didReceiveMemoryWarning()
     }
@@ -97,8 +105,6 @@ class PostViewController: UIViewController, UICollectionViewDataSource, UICollec
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
         return posts.count
     }
-    
-  
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostCell", for: indexPath) as! PostCell
@@ -110,9 +116,6 @@ class PostViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
-        //let postDetailViewController = segue.destination as! PostDetailViewController
-        //let selection = collectionView.indexPathsForSelectedItems!.first!
-        //postDetailViewController.post = posts[selection.item]
         let postDetailViewController = self.storyboard?.instantiateViewController(withIdentifier: "PostDetailViewController") as! PostDetailViewController
         
         postDetailViewController.post = posts[indexPath.item]
@@ -121,17 +124,4 @@ class PostViewController: UIViewController, UICollectionViewDataSource, UICollec
         
     }
     
-    
-    
-    
-    
-    
-    
-    /*func collectionView(_ collectionViw: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath)
-        if kind == UICollectionElementKindSectionHeader {
-            headerView.backgroundColor = UIColor.brown
-        }
-        return headerView
-    }*/
 }

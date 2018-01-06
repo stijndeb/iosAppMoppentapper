@@ -12,35 +12,19 @@ private let users = database["users"]
 
 
 func configureUserRouter(on router: Router){
-    router.post("/login", handler: login)
-    router.post("/register", handler: register)
-    //router.get("/", handler: getProject)
-    //router.put("/", handler: updateProject)
-    //router.delete("/", handler: deleteProject)
+    router.get("/login", handler: login)
+    //router.post("/register", handler: register)
     
 }
 
-// Codable Routing API
-
-// GET /projects
-/*private func getAllPosts(completion: ([Post]?, RequestError?)  -> Void) {
+//enkel de login methode wordt gebruikt.
+private func login(identifier: String, completion: (User?, RequestError?) -> Void) {
     do {
-        let results = try posts.find().flatMap(Post.init)
-        completion(results, nil)
-    } catch {
-        Log.error(error.localizedDescription)
-        completion(nil, .internalServerError)
-    }
-}*/
-
-//POST /login
-private func login(data: User, completion: (User?, RequestError?) -> Void) {
-    do {
-        guard try users.count(["username": data.username]) == 1 else{
+        guard try users.count(["username": identifier]) == 1 else{
             completion(nil, .notFound)
             return
         }
-        let result = try users.findOne(["username": data.username]).flatMap(User.init)
+        let result = try users.findOne(["username": identifier]).flatMap(User.init)
         completion(result!, nil)
         
             
@@ -50,7 +34,8 @@ private func login(data: User, completion: (User?, RequestError?) -> Void) {
     }
 }
 
-// POST /projects
+//
+/*
 private func register(user: User, completion: (User?, RequestError?) -> Void) {
     do {
         guard try users.count(["username": user.username]) == 0 else{
@@ -64,60 +49,6 @@ private func register(user: User, completion: (User?, RequestError?) -> Void) {
         completion(nil, .internalServerError)
     }
 }
-
-/*
- // GET /projects/:id
- private func getProject(name: String, completion: (Project?, RequestError?) -> Void) {
- do {
- guard let bson = try projects.findOne(["name": name]) else {
- return completion(nil, .notFound)
- }
- guard let project = Project(from: bson) else{
- return completion(nil, .internalServerError)
- }
- completion(project,nil)
- } catch {
- Log.error(error.localizedDescription)
- completion(nil, .internalServerError)
- }
- }
- 
- // PUT /projects/:id
- private func updateProject(name: String, to project: Project, completion: (Project?, RequestError?) -> Void) {
- do {
- guard try projects.count(["name":name]) == 1 else {
- return completion(nil, .notFound)
- }
- try projects.update(["name":name], to: project.toBSON())
- completion(project, nil)
- } catch {
- Log.error(error.localizedDescription)
- completion(nil, .internalServerError)
- }
- 
- }
- 
- // DELETE /projects/:id
- private func deleteProject(name: String, completion: (RequestError?) -> Void){
- do {
- guard try projects.count(["name": name]) == 1 else {
- return completion(.notFound);
- }
- try projects.remove(["name": name])
- completion(nil)
- } catch {
- Log.error(error.localizedDescription)
- completion(.internalServerError)
- }
- }
- */
-
-
-
-/*
- POST -> niet idemportent (POST, POST)
- PUT -> wel idempotent (PUT, PUT)
- PATCH -> wel idempotent
- */
+*/
 
 

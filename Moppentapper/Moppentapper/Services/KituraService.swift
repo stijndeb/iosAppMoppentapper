@@ -47,15 +47,14 @@ class KituraService {
     func login(username:String, password: String, respondWith: @escaping (User) -> Void) -> Void{
         let user = User(name: "", email: "", username: username, password: password)
         
-        client.post("users/login", data: user) {
+        client.get("users/login", identifier: user.username) {
             (result: User?, error: RequestError?) in
             if let error = error {
                 print("error while getting user : \(error.localizedDescription)")
+                respondWith(user)
             }
             
             
-            //var match = "$2a$10$nfayayiin.uirVuj6TYS5es4l1TxNTycAB1eX1GS7BLnPnaXGh7T6"
-            //print(match)
             
             if let compare = BCryptSwift.verifyPassword(password, matchesHash: (result?.password)!) {
                 if compare {
@@ -64,10 +63,10 @@ class KituraService {
                     user.password = (result?.password)!
                     respondWith(user)
                 }else{
-                    print("oh nee")
+                    respondWith(user)
                 }
             }else {
-                print("niet")
+                respondWith(user)
             }
             
             
@@ -76,6 +75,33 @@ class KituraService {
             }
         }
     }
+    
+    
+    func ratePost(beoordeling: Rating, respondWith: @escaping (Post?) -> Void) -> Void{
+        client.post("posts/ratePost", data: beoordeling){
+            (post: Post?, error: RequestError?) in
+            if let error = error {
+                print("err while loading post: \(error.localizedDescription)")
+            }
+            DispatchQueue.main.async {
+                respondWith(post)
+            }
+        }
+    }
+    
+    func addComment(comment: Comment, respondWith: @escaping (Post?) -> Void) -> Void{
+        client.post("posts/addComment", data: comment){
+            (post: Post?, error: RequestError?) in
+            if let error = error {
+                print("err while loading post: \(error.localizedDescription)")
+            }
+            DispatchQueue.main.async {
+                respondWith(post)
+            }
+        }
+    }
+    
+    
     
     
 }

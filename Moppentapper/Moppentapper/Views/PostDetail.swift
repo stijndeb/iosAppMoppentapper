@@ -89,6 +89,7 @@ class PostDetail: UICollectionViewCell {
             if let post = $0 {
                 self.post = post
                 self.postDetailViewController.reload(post:post)
+                self.commentField.text = ""
             }
         }
     }

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		69B658735C5890968BDE31B3 /* Pods_Moppentapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FAE5E8461DF0AF7791E9FE0 /* Pods_Moppentapper.framework */; };
-		7007D26620002B8E0003185D /* DetailPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7007D26520002B8E0003185D /* DetailPostViewController.swift */; };
 		706301E51FFAB8B200BD8ED1 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706301E41FFAB8B200BD8ED1 /* Category.swift */; };
 		706301E71FFAB8C900BD8ED1 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706301E61FFAB8C900BD8ED1 /* Comment.swift */; };
 		706301E91FFAB8EF00BD8ED1 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706301E81FFAB8EF00BD8ED1 /* Rating.swift */; };
@@ -34,7 +33,6 @@
 /* Begin PBXFileReference section */
 		131C46BABE2053C6853D7F7B /* Pods-Moppentapper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moppentapper.release.xcconfig"; path = "Pods/Target Support Files/Pods-Moppentapper/Pods-Moppentapper.release.xcconfig"; sourceTree = "<group>"; };
 		5FAE5E8461DF0AF7791E9FE0 /* Pods_Moppentapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Moppentapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7007D26520002B8E0003185D /* DetailPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostViewController.swift; sourceTree = "<group>"; };
 		706301E41FFAB8B200BD8ED1 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		706301E61FFAB8C900BD8ED1 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		706301E81FFAB8EF00BD8ED1 /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
@@ -142,7 +140,6 @@
 				70E002DE1FF26C0D00BB2942 /* PostViewController.swift */,
 				70E002E71FF2EE0C00BB2942 /* PostDetailViewController.swift */,
 				70E98B121FFEE4DB0047CB66 /* ProfileViewController.swift */,
-				7007D26520002B8E0003185D /* DetailPostViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -305,7 +302,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				70CE810B1FF05C0800C2664F /* Post.swift in Sources */,
-				7007D26620002B8E0003185D /* DetailPostViewController.swift in Sources */,
 				70E002E81FF2EE0C00BB2942 /* PostDetailViewController.swift in Sources */,
 				706301E91FFAB8EF00BD8ED1 /* Rating.swift in Sources */,
 				70CE80AA1FEFAA0400C2664F /* LoginViewController.swift in Sources */,

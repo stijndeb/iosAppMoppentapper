@@ -14,7 +14,6 @@ class PostDetailViewController: UIViewController, UICollectionViewDataSource, UI
             if let post = $0 {
                 self.post = post
                 self.postDetailCollectionView.reloadData()
-                //self.comments.reloadData()
             }
         }
         //postCell
@@ -38,19 +37,7 @@ class PostDetailViewController: UIViewController, UICollectionViewDataSource, UI
         
         
         
-        //postHeightConstraint instellen
-        let size = CGSize(width: 400, height: 1000)
-        let attributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 15)]
-        let estimatedFrame = NSString(string: post.inhoud).boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
-        //postHeightConstraint.constant = estimatedFrame.height + 200
         
-        
-        //rating + buttons instellen
-        /*rating.rating = Double(post.score())
-        if !(isKeyPresentInUserDefaults(key: "username")){
-            rateButton.isEnabled = false
-            rating.settings.updateOnTouch = false
-        }*/
     }
 
     func isKeyPresentInUserDefaults(key: String) -> Bool {
@@ -61,20 +48,7 @@ class PostDetailViewController: UIViewController, UICollectionViewDataSource, UI
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    /*
-    @IBAction func Rate(_ sender: Any) {
-        print(rating.rating)
-        let punten = Rating(auteur: UserDefaults.standard.string(forKey: "username")!, post: post.id, beoordeling: Int(rating.rating), datum: Date())
-        
-        KituraService.shared.ratePost(beoordeling: punten){
-            if let post = $0 {
-                self.post = post
-                self.PostCollectionView.reloadData()
-                self.comments.reloadData()
-            }
-        }
-    }*/
-    
+   
     func reload(post: Post){
         self.post = post
         self.postDetailCollectionView.reloadData()
@@ -102,18 +76,4 @@ class PostDetailViewController: UIViewController, UICollectionViewDataSource, UI
     }
 }
 
-/*
-extension PostDetailViewController: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let viewHeight = self.topView.frame.size.height + 2
-        let offset = min(scrollView.contentOffset.y, viewHeight)
-        
-        if offset >= 0 || self.topViewConstraint.constant != 0 {
-            self.topViewConstraint.constant = -offset
 
-            let percent = max(1 - offset/viewHeight,0)
-            self.topView.alpha = percent
-            print("done")
-        }
-    }
-}*/

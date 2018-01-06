@@ -312,16 +312,8 @@ private func addComment(data: Commentaar, completion: (Post?, RequestError?) -> 
         let user = try users.findOne(["username": data.auteur]).flatMap(User.init)
         
         
-        
-        //let deRating = Rating(auteur: userId, post: data.post, beoordeling: data.beoordeling, datum: data.datum)
-        //deRating.id = try ObjectId(deRating.objectId())
-        //try rating.insert(deRating.toBSON())
-        
-        
-        
-        
         /*
-         *  om ook de rating bij de lijst van beoordelingen in de post te vullen hebben we eerst natuurlijk de volledige post zelf nodig
+         *  om ook de comment bij de lijst van comments in de post te vullen hebben we eerst natuurlijk de volledige post zelf nodig
          *
          */
         

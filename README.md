@@ -14,16 +14,19 @@ Maar u kan ook mijn login gebruiken:  username: Jantje
                                       password: jantje
 (let op de hoofdletters!)
 
-In de app zijn bepaalde dingen mogelijk:
+In de app zijn bepaalde dingen mogelijk
+
 eerst zonder in te loggen:
   - alle posts lezen
   - elke post in detail bekijken + hun commentaren
   - inloggen
+  
 Wanneer men is ingelogd:
   - in detail post kan men nu ook een reactie achter laten, en een beoordeling
   - Men kan naar het eigen profiel gaan door op uw username te klikken in het "posts" scherm
   - in deze pagina vind u meer info over de gebruiker en al zijn posts
   - outloggen
+  
 En natuurlijk ook veel lees plezier!
 
 Omdat mijn website en de app dezelfde databank gebruiken, kan men veranderingen in 1 van beide ook zien in de andere.
